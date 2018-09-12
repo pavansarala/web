@@ -1,0 +1,108 @@
+Rules of the game
+User has 1000 INR when he starts the game
+Every try(click on start) is charged 100 INR
+Game is over if user has less than 100 INR
+Every try generates three random numbers, each random number is in 0-9 range
+If all the numbers are odd/even (eg. 2 4 6), user gets 300 INR
+If the numbers are in sequence with difference of 1 in any order (eg. 2 3 4 or 3 2 4 or 4 6 5), user gets 800 INR
+If all the numbers are same (eg. 4 4 4), user gets 1000 INR
+Else user gets no money
+
+
+
+<html>
+<body>
+<h2 >Game</h2>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="e"></p>
+<p id="demo5"></p>
+<style>
+.button{
+ background-color: #4CAF50;
+  position: absolute;
+    left: 48%;
+  text-align: center;
+  font-size: 16px;
+   margin: 4px 2px;
+}
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+#demo1{
+text-align:center;
+}
+h2
+{
+text-align:center;
+}
+#demo2{
+text-align:center;
+}
+#demo5{
+text-align:center;
+}
+</style>
+<script>
+var z=1000;
+document.getElementById("demo1").innerHTML =
+"You have: " + z +"INR";
+function myFunction(){
+  if(z<100){
+document.getElementById("demo1").innerHTML =
+"Game Over";
+    return;
+}else
+var i;
+var x;
+var y;
+var s;
+z=z-100;
+document.getElementById("demo1").innerHTML =
+"You have: " + z +"INR";
+i=document.getElementById("demo2").innerHTML =
+Math.floor(Math.random() * 1000);
+x=i%10;
+i=i/10;
+y=Math.floor(i%10);
+i=i/10;
+s=Math.floor(i%10);
+Math.round(s);
+if(x==y && y==s && x==s){
+  z=z+1000;
+  document.getElementById("demo5").innerHTML =
+  "your got 1000"
+}
+else if(x%2==0 && y%2==0 && s%2==0){
+  z=z+300;
+  document.getElementById("demo5").innerHTML =
+  "your got 300"
+}else if(x%2!=0 && y%2!=0 && s%2!=0){
+  z=z+300;
+  document.getElementById("demo5").innerHTML =
+  "your got 300"
+}else if(x==y-1 && y==s-1 && s==y+1){
+   z=z+800;
+  document.getElementById("demo5").innerHTML =
+  "your got 800"
+}else if(x==s-1 && s==x+1){
+z=z+800;
+document.getElementById("demo5").innerHTML =
+  "your got 800"
+}else
+document.getElementById("demo5").innerHTML =
+"Your Not Lucky This Time"
+}
+
+
+</script>
+
+<p>
+<button class="button" type="button" onclick="myFunction()">start</button>
+</p>
+</body>
+</html>
