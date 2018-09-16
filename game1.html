@@ -9,7 +9,6 @@ If all the numbers are same (eg. 4 4 4), user gets 1000 INR
 Else user gets no money
 
 
-
 <html>
 <body>
 <h2 >Game</h2>
@@ -80,24 +79,25 @@ if(x==y && y==s && x==s){
 else if(x%2==0 && y%2==0 && s%2==0){
   z=z+300;
   document.getElementById("demo5").innerHTML =
-  "your got 300"
+  "your got 300 all numbers are even"
 }else if(x%2!=0 && y%2!=0 && s%2!=0){
   z=z+300;
   document.getElementById("demo5").innerHTML =
-  "your got 300"
-}else if(x==y-1 && y==s-1 && s==y+1){
+  "your got 300 all numbers are odd"
+}else if  (y==x+1 && y==s-1){
    z=z+800;
   document.getElementById("demo5").innerHTML =
-  "your got 800"
-}else if(x==s-1 && s==x+1){
+  "your got 800 as the numbers are in sequence"
+}else if( (x==s-1 && (y==x-1||y==s+1)) || (x==s+1 && (y==x+1||y==s-1)) ) {
 z=z+800;
-document.getElementById("demo5").innerHTML =
-  "your got 800"
-}else
+  document.getElementById("demo5").innerHTML =
+  "your got 800 as the numbers are in sequence"
+}
+else{
 document.getElementById("demo5").innerHTML =
 "Your Not Lucky This Time"
 }
-
+}
 
 </script>
 
